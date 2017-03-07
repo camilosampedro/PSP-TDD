@@ -1,1 +1,2 @@
-mvn test -B
+script:
+ - mvn test -B
