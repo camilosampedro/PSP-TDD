@@ -1,2 +1,2 @@
 script:
- - mvn test -B
+ - mvn test -B && cd PSP1-Scala/ && sbt test
