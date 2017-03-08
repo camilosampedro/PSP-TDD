@@ -3,5 +3,10 @@ scala:
 - 2.12.1
 jdk:
  - oraclejdk8
+before_install:
+ - mkdir -p .ivy2
+cache:
+  directories:
+    - .ivy2
 script:
  - mvn test -B && cd PSP1-Scala/ && sbt test
