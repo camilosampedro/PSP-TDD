@@ -17,7 +17,10 @@ class Estadisticos {
 
     static double calcularDesviacionEstandar(List<Double> lista) {
         double media = calcularMedia(lista);
-
-        return 0;
+        double sumaRaiz = 0;
+        for(double numero: lista) {
+            sumaRaiz += (numero - media) * (numero - media);
+        }
+        return Math.sqrt(sumaRaiz / (lista.size() - 1));
     }
 }

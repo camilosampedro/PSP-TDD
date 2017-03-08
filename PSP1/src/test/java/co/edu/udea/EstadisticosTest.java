@@ -51,28 +51,28 @@ public class EstadisticosTest {
     public void testCalcularMediaConDatosDelProfesorColumna1() {
         double resultado = Estadisticos.calcularMedia(listaColumna1);
         double esperado = 550.6;
-        assertEquals(esperado, resultado,0.001);
+        assertEquals(esperado, resultado,0.01);
     }
 
     @Test
     public void testCalcularMediaConDatosDelProfesorColumna2() {
         double resultado = Estadisticos.calcularMedia(listaColumna2);
         double esperado = 60.32;
-        assertEquals(esperado, resultado,0.001);
+        assertEquals(esperado, resultado,0.01);
     }
 
     @Test
     public void testCalcularDesviacionEstandarConDatosDelProfesorColumna1() {
         double resultado = Estadisticos.calcularDesviacionEstandar(listaColumna1);
         double esperado = 572.03;
-        assertEquals(esperado, resultado,0.001);
+        assertEquals(esperado, resultado,0.01);
     }
 
     @Test
     public void testCalcularDesviacionEstandarConDatosDelProfesorColumna2() {
         double resultado = Estadisticos.calcularDesviacionEstandar(listaColumna2);
         double esperado = 62.26;
-        assertEquals(esperado, resultado,0.001);
+        assertEquals(esperado, resultado,0.01);
     }
 }
 
