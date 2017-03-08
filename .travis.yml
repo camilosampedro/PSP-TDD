@@ -1,2 +1,4 @@
+jdk:
+ - oraclejdk8
 script:
  - mvn test -B && cd PSP1-Scala/ && sbt test
