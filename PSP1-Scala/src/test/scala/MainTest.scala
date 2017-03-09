@@ -9,8 +9,7 @@ class MainTest extends WordSpec with MockitoSugar {
   private def theParameters = afterWord("the parameters")
 
   val noArguments = Array.empty[String]
-  val wrongArguments = Array.empty[String]
-  val expectedArguments = Array.empty[String]
+  val expectedArguments = Array(getClass.getResource("test.txt").getFile)
 
   trait MockOutput extends Output {
     var messages: Seq[String] = Seq.empty[String]
@@ -24,14 +23,9 @@ class MainTest extends WordSpec with MockitoSugar {
         intercept[IllegalArgumentException](Main.main(noArguments))
       }
     }
-    "have a wrong format" should {
-      "throw an IllegalArgumentException" in {
-        intercept[IllegalArgumentException](Main.main(wrongArguments))
-      }
-    }
-    "have an expected format" should {
-      "call the ReadFromFile" in {
-
+    "have an existing filename as first argument" should {
+      "continue without problems" in {
+        Main.main(expectedArguments)
       }
     }
   }

@@ -10,6 +10,7 @@ class PSP1ListTest extends WordSpec {
 
   val column1List: List[Int] = List(160, 591, 114, 229, 230, 270, 128, 1657, 624, 1503)
   val column2List: List[Double] = List(15, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2)
+  val negativeList: List[Int] = (-11 to -1).toList
   val emptyList: List[Double] = List.empty[Double]
 
   "A list" when {
@@ -34,11 +35,19 @@ class PSP1ListTest extends WordSpec {
     }
     "is the second column" must have {
       "a calculated mean of 60.32" in {
-
         column2List.mean shouldBe 60.32 +- 0.01
       }
       "a calculated standard deviation of 62.26" in {
         column2List.stdDev shouldBe 62.26 +- 0.01
+      }
+    }
+    "is a list just with negative numbers from -11 to -1" must have {
+      "a negative calculated mean of -6" in {
+        negativeList.mean should not be >= (0)
+        negativeList.mean shouldBe -6
+      }
+      "a standard deviation of 3.31" in {
+        negativeList.stdDev shouldBe 3.31 +- 0.01
       }
     }
   }
