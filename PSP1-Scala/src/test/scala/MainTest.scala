@@ -11,12 +11,6 @@ class MainTest extends WordSpec with MockitoSugar {
   val noArguments = Array.empty[String]
   val expectedArguments = Array(getClass.getResource("test.txt").getFile)
 
-  trait MockOutput extends Output {
-    var messages: Seq[String] = Seq.empty[String]
-
-    override def println(s: String): Unit = messages = messages :+ s
-  }
-
   "The main execution" when theParameters {
     "are empty" should {
       "throw an IllegalArgumentException" in {

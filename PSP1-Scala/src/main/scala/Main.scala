@@ -1,7 +1,7 @@
 /**
   * Main
   */
-object Main extends Output {
+object Main {
 
   def main(args: Array[String]): Unit = {
     if(args.isEmpty){

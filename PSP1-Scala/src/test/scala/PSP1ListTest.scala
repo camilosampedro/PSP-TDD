@@ -7,6 +7,7 @@ import org.scalatest._
   */
 class PSP1ListTest extends WordSpec {
   private def have = afterWord("have")
+  //private def it = afterWord("it")
 
   val column1List: List[Int] = List(160, 591, 114, 229, 230, 270, 128, 1657, 624, 1503)
   val column2List: List[Double] = List(15, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2)
@@ -14,7 +15,7 @@ class PSP1ListTest extends WordSpec {
   val emptyList: List[Double] = List.empty[Double]
 
   "A list" when {
-    "empty" must have {
+    "it is empty" must have {
       "a NaN as a calculated mean" in {
         assert(emptyList.mean.isNaN)
       }
@@ -22,7 +23,7 @@ class PSP1ListTest extends WordSpec {
         assert(emptyList.stdDev.isNaN)
       }
     }
-    "is the first column" must have {
+    "it is the first column" must have {
       "a calculated mean of 550.6" in {
         column1List.mean shouldBe 550.6 +- 0.01
       }
@@ -33,7 +34,7 @@ class PSP1ListTest extends WordSpec {
         column1List.stdDev shouldBe 572.03 +- 0.01
       }
     }
-    "is the second column" must have {
+    "it is the second column" must have {
       "a calculated mean of 60.32" in {
         column2List.mean shouldBe 60.32 +- 0.01
       }
@@ -41,7 +42,7 @@ class PSP1ListTest extends WordSpec {
         column2List.stdDev shouldBe 62.26 +- 0.01
       }
     }
-    "is a list just with negative numbers from -11 to -1" must have {
+    "it is a list just with negative numbers from -11 to -1" must have {
       "a negative calculated mean of -6" in {
         negativeList.mean should not be >= (0)
         negativeList.mean shouldBe -6
