@@ -1,4 +1,4 @@
-name := """scala-testing"""
+name := """PSP-1"""
 
 version := "0.1.0"
 
@@ -23,3 +23,5 @@ libraryDependencies ++= Seq(
 
 // TestNG
 libraryDependencies += "org.testng" % "testng" % "6.8.8" % "test"
+
+libraryDependencies += "com.github.scopt" %% "scopt" % "3.5.0"
