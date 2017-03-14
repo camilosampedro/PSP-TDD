@@ -20,7 +20,7 @@ class PSP1ListTest extends WordSpec {
       "throw a ArithmeticException calculating its mean" in {
         intercept[ArithmeticException](emptyList.mean)
       }
-      "throw a AritmeticException calculating its mean" in {
+      "throw a ArithmeticException calculating its standard deviation" in {
         intercept[ArithmeticException](emptyList.stdDev)
       }
     }
