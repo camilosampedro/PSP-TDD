@@ -5,7 +5,6 @@ import org.scalatest.{FeatureSpec, GivenWhenThen}
   */
 class ReadFromFileSpec extends FeatureSpec with GivenWhenThen {
 
-
   info("As a user from PSP1")
   info("I want to calculate the mean of a file compound by decimal numbers")
   info("So I don't have to type them manually")
