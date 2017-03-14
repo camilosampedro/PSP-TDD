@@ -14,12 +14,12 @@ class MainTest extends WordSpec with MockitoSugar {
   "The main execution" when theParameters {
     "are empty" should {
       "throw an IllegalArgumentException" in {
-        intercept[IllegalArgumentException](Main.main(noArguments))
+        intercept[IllegalArgumentException](Main.checkIfIsValid(noArguments))
       }
     }
     "have an existing filename as first argument" should {
       "continue without problems" in {
-        Main.main(expectedArguments)
+        Main.checkIfIsValid(expectedArguments)
       }
     }
   }

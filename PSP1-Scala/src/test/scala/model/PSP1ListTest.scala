@@ -1,3 +1,5 @@
+package model
+
 import PSP1List._
 import org.scalatest.Matchers._
 import org.scalatest._
@@ -7,20 +9,19 @@ import org.scalatest._
   */
 class PSP1ListTest extends WordSpec {
   private def have = afterWord("have")
-  //private def it = afterWord("it")
 
-  val column1List: List[Int] = List(160, 591, 114, 229, 230, 270, 128, 1657, 624, 1503)
-  val column2List: List[Double] = List(15, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2)
-  val negativeList: List[Int] = (-11 to -1).toList
-  val emptyList: List[Double] = List.empty[Double]
+  private val column1List = List(160, 591, 114, 229, 230, 270, 128, 1657, 624, 1503)
+  private val column2List = List(15, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2)
+  private val negativeList = (-11 to -1).toList
+  private val emptyList = List.empty[Double]
 
   "A list" when {
-    "it is empty" must have {
-      "a NaN as a calculated mean" in {
-        assert(emptyList.mean.isNaN)
+    "it is empty" should {
+      "throw a ArithmeticException calculating its mean" in {
+        intercept[ArithmeticException](emptyList.mean)
       }
-      "a NaN as a calculated standard deviation" in {
-        assert(emptyList.stdDev.isNaN)
+      "throw a AritmeticException calculating its mean" in {
+        intercept[ArithmeticException](emptyList.stdDev)
       }
     }
     "it is the first column" must have {

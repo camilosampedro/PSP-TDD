@@ -1,10 +1,18 @@
+package model
+
 import scala.language.implicitConversions
 
 /**
   * Lista
   */
 class PSP1List(val list: List[Double]) {
-  def mean: Double = list.sum / list.size
+  def mean: Double = {
+    if (list.isEmpty) {
+      throw new ArithmeticException("Division by zero")
+    } else {
+      list.sum / list.size
+    }
+  }
 
   def sqrtSum: Double = if (mean.isNaN) {
     Double.NaN
