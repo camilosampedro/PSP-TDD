@@ -1,6 +1,10 @@
-Scala Testing
-===============
+# PSP1
+Requisitos:
+ - [SBT](http://www.scala-sbt.org/download.html)
 
-A sample application demonstrating unit testing with various frameworks: ScalaTest, Specs2, Scalacheck, JUnit, and TestNG.
-
-This template is a companion to the <a href="https://www.youtube.com/watch?v=W9yMkao_AZg">Scala Testing video</a> on the <a href="https://www.youtube.com/user/typesafehub">Typesafe YouTube channel</a>. You can find the slides from the video in the "presentation" directory of the project.
+## Cómo ejecutar
+`sbt "run RUTA_ARCHIVO"`
+## Cómo ejecutar tests
+`sbt test`
+## Cómo ejecutar tests y luego ejecutar
+`sbt test "run RUTA_ARCHIVO"`
