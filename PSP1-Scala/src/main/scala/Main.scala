@@ -21,6 +21,7 @@ object Main {
            |`---'    `-------'`---'      `---'
       """.stripMargin + Console.RESET)
     checkIfIsValid(args)
+    val x = ""
     val list = ReadFromFile.getListFromFile(args(0))
     println(s"Mean: \t\t\t${Console.UNDERLINED}${Console.CYAN}${list.mean}${Console.RESET}")
     println(s"Standard deviation: \t${Console.UNDERLINED}${Console.CYAN}${list.sqrtSum}${Console.RESET}")

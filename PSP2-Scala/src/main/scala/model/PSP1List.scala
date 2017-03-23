@@ -24,11 +24,11 @@ case class PSP1List(list: Vector[Double]) {
 
   def stdDev: Double = Math.sqrt(sqrtSum / (list.size - 1))
 
-  def sumPow: Double = list.map(v=>v*v).sum
+  def sqSum: Double = list.map(v=>v*v).sum
 
   def sum: Double = list.sum
 
-  def dividerForR: Double = n * sumPow - (sum * sum)
+  def dividerForR: Double = n * sqSum - (sum * sum)
 }
 
 object PSP1List {

@@ -20,7 +20,7 @@ case class PSP2ListPair(xList: PSP1List, yList: PSP1List) {
   }
 
   private[model] def upForBeta = sumMult - n * xList.mean * yList.mean
-  private[model] def downForBeta = xList.sumPow - n * xList.mean * xList.mean
+  private[model] def downForBeta = xList.sqSum - n * xList.mean * xList.mean
 
   def rSqrt: Double = rXY * rXY
 
