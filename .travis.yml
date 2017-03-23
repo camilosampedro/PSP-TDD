@@ -9,4 +9,4 @@ cache:
   directories:
     - .ivy2
 script:
- - mvn test -B && cd PSP1-Scala/ && sbt test
+ - mvn test -B && cd PSP1-Scala/ && sbt test && cd ../PSP2-Scala/ && sbt test
