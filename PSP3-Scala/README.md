@@ -1,4 +1,4 @@
-# PSP1
+# PSP3
 Requisitos:
  - [SBT](http://www.scala-sbt.org/download.html)
 
