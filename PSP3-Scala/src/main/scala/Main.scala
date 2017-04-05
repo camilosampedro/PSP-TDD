@@ -3,9 +3,11 @@
   */
 object Main {
 
-  private val cyan = Console.RESET + Console.CYAN
-  private val green = Console.RESET + Console.GREEN
-  private val yell = Console.RESET + Console.YELLOW
+  private val reset = Console.RESET
+  private val cyan = reset + Console.CYAN
+  private val green = reset + Console.GREEN
+  private val yell = reset + Console.YELLOW
+  private val red = reset + Console.RED
 
 
   def main(args: Array[String]): Unit = {
@@ -20,15 +22,17 @@ object Main {
          |888             "888888       888    888
          |888       Y88b  d88P888       Y88b  d88P
          |888        "Y8888P" 888        "Y8888P"
-       """.stripMargin + Console.RESET)
+       """.stripMargin + reset)
     checkIfIsValid(args)
-    val list = ReadFromFile.getListFromFile(args(0))
-    println(s"Mean: \t\t\t${Console.UNDERLINED}${Console.CYAN}${list.mean}${Console.RESET}")
-    println(s"Standard deviation: \t${Console.UNDERLINED}${Console.CYAN}${list.sqrtSum}${Console.RESET}")
+    val list = ReadFromFile.getLOCFromFile(args(0))
+    val result = list.evaluate(args(1).toDouble)
+    println(s"Scale: \t\t\t${Console.UNDERLINED}${Console.CYAN}$result$reset")
   }
 
   def checkIfIsValid(args: Array[String]): Unit = {
-    if (args.isEmpty) {
+    if (args.size != 2) {
+      println(s"$red There was an error: 2 arguments expected $reset")
+      println(s"$cyan Syntax:$reset <file_path> <evaluate> $reset")
       throw new IllegalArgumentException("Program was expecting a file name")
     }
   }

@@ -1,5 +1,6 @@
 package model
 
+import model.LOCScale._
 import model.PSP1List._
 
 import scala.language.implicitConversions
@@ -39,6 +40,13 @@ case class PSP3LinesOfCode(linesOfCodePerClass: Vector[(Int, Int)]) {
 
   def veryLarge: Double = pow(E, lnVL)
 
+  def evaluate(lineNumber: Double): LOCScale = lineNumber match {
+    case l if l < verySmall => VerySmall
+    case l if l < small => Small
+    case l if l < medium => Medium
+    case l if l < large => Large
+    case _ => VeryLarge
+  }
 }
 
 object PSP3LinesOfCode {

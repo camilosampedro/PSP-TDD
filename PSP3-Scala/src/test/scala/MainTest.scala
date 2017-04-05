@@ -9,7 +9,7 @@ class MainTest extends WordSpec with MockitoSugar {
   private def theParameters = afterWord("the parameters")
 
   val noArguments = Array.empty[String]
-  val expectedArguments = Array(getClass.getResource("test.txt").getFile)
+  val expectedArguments = Array(getClass.getResource("psp3.txt").getFile, "14")
 
   "The main execution" when theParameters {
     "are empty" should {
