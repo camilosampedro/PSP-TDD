@@ -1,3 +1,5 @@
+import p2p.math.TGammaDistribution
+
 /**
   * Main
   */
@@ -14,26 +16,29 @@ object Main {
     println(
       Console.BLINK + green +
       s"""
-         |8888888b.  .d8888b. 8888888b.  .d8888b.
-         |888   Y88bd88P  Y88b888   Y88bd88P  Y88b
-         |888    888Y88b.     888    888     .d88P
-         |888   d88P "Y888b.  888   d88P    8888"
-         |8888888P"     "Y88b.8888888P"      "Y8b.
-         |888             "888888       888    888
-         |888       Y88b  d88P888       Y88b  d88P
-         |888        "Y8888P" 888        "Y8888P"
+         | , _     , _
+         |/|/ \\ ()/|/ \\|  |
+         | |__/ /\\ |__/|__|_
+         | |   /(_)|      |
        """.stripMargin + reset)
     checkIfIsValid(args)
-    val list = ReadFromFile.getLOCFromFile(args(0))
-    val result = list.evaluate(args(1).toDouble)
-    println(s"Scale: \t\t\t${Console.UNDERLINED}${Console.CYAN}$result$reset")
+    val dof = args(0).toInt
+    val rightBound = args(1).toDouble
+    val error = args(2).toDouble
+    val result = new TGammaDistribution(dof).integrate(rightBound, error= error)
+    println("Input:")
+    println(s"\tdof=$yell$dof$reset")
+    println(s"\tright bound=$yell$rightBound$reset")
+    println(s"\terror=$yell$error$reset")
+    println(s"Integration result: \t\t\t${Console.UNDERLINED}${Console.CYAN}$result$reset")
   }
 
   def checkIfIsValid(args: Array[String]): Unit = {
-    if (args.size != 2) {
-      println(s"$red There was an error: 2 arguments expected $reset")
-      println(s"$cyan Syntax:$reset <file_path> <evaluate> $reset")
-      throw new IllegalArgumentException("Program was expecting a file name")
+    if (args.length != 3) {
+      println(s"$red There was an error: 3 arguments expected $reset")
+      println(s"$cyan Syntax:$reset <dof> <right_bound> <error> $reset")
+      println(s"$cyan Example:$reset 9 1.1 0.00001 $reset")
+      throw new IllegalArgumentException("Program was expecting dof, evaluate and error")
     }
   }
 

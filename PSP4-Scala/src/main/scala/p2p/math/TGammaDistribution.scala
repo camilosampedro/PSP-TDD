@@ -8,18 +8,14 @@ import scala.annotation.tailrec
 class TGammaDistribution(val dof: Int)
   extends TDistribution(dof, gamma = TGammaDistribution.gamma){
   def integrate(to: Double, num_seg: Int = 10, error: Double = 0.00001): Double = {
-    println(s"Executing: $to")
     untilError(to, num_seg * 2, performIntegration(to, num_seg), error)
   }
 
   @tailrec private def untilError(to: Double, num_seg: Int, last: Double, error: Double): Double = {
-    println(s"Last: $last")
     val aNewValue = performIntegration(to, num_seg)
     if(math.abs(aNewValue - last) < error) {
-      println(s"Returned: $aNewValue")
       aNewValue
     } else {
-      println("Repeating")
       untilError(to, num_seg*2 , aNewValue, error)
     }
   }
